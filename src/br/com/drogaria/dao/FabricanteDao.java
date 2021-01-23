@@ -1,5 +1,8 @@
 package br.com.drogaria.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -19,10 +22,28 @@ public class FabricanteDao {
 		} catch (RuntimeException ex) {
 			if (transacao != null) {
 				transacao.rollback();
-			} throw ex;
+			}
+			throw ex;
 		} finally {
 			sessao.close();
 		}
+
+	}
+
+	public List<Fabricante> listar() {
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Query consulta = null;
+		List<Fabricante> fabricantes = null;
+
+		try {
+			consulta = sessao.getNamedQuery("Fabricante.listar");
+			fabricantes = consulta.list();
+		} catch (RuntimeException ex) {
+			throw ex;
+		} finally {
+			sessao.close();
+		}
+		return fabricantes;
 
 	}
 
