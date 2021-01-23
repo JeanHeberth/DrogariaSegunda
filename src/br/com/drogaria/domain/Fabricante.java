@@ -11,14 +11,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_fabricantes")
-@NamedQueries({@NamedQuery(name = "Fabricante.listar" , query = "SELECT fabricante FROM Fabricante fabricante")})
+@NamedQueries({ 
+	@NamedQuery(name = "Fabricante.listar", query = "SELECT fabricante FROM Fabricante fabricante"),
+	@NamedQuery(name = "Fabricante.buscarPorCodigo", query = "SELECT fabricante FROM Fabricante fabricante WHERE fabricante.codigo = :codigo")})
+
 public class Fabricante {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "fab_codigo")
 	private Long codigo;
-	
+
 	@Column(name = "fab_descricao", length = 50, nullable = false)
 	private String descricao;
 
@@ -42,8 +45,5 @@ public class Fabricante {
 	public String toString() {
 		return "Fabricante [codigo: " + codigo + ", descricao: " + descricao + "]";
 	}
-	 
-	
-	
 
 }

@@ -11,6 +11,7 @@ import br.com.drogaria.util.HibernateUtil;
 
 public class FabricanteDao {
 
+	/* Método salvar fabricante */
 	public void salvar(Fabricante fabricante) throws Exception {
 
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
@@ -30,6 +31,7 @@ public class FabricanteDao {
 
 	}
 
+	/* Método listar fabricante */
 	public List<Fabricante> listar() {
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		Query consulta = null;
@@ -47,4 +49,24 @@ public class FabricanteDao {
 
 	}
 
+	/* Método buscar por código */
+
+	public Fabricante buscarPorCodigo(Long codigo) {
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Fabricante fabricante = null;
+
+		try {
+			Query consulta = sessao.getNamedQuery("Fabricante.buscarPorCodigo");
+			consulta.setLong("codigo", codigo);
+
+			fabricante = (Fabricante) consulta.uniqueResult();
+		} catch (RuntimeException ex) {
+			throw ex;
+		} finally {
+			sessao.close();
+		}
+		return fabricante;
+	}
+	
+	
 }

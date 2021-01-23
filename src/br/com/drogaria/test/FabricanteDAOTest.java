@@ -1,6 +1,5 @@
 package br.com.drogaria.test;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Ignore;
@@ -28,6 +27,7 @@ public class FabricanteDAOTest {
 	}
 
 	@Test
+	@Ignore
 	public void listar() {
 		FabricanteDao fdao = new FabricanteDao();
 		List<Fabricante> fabricantes = fdao.listar();
@@ -35,6 +35,16 @@ public class FabricanteDAOTest {
 		for (Fabricante fabricante : fabricantes) {
 			System.out.println(fabricante);
 		}
+
+	}
+
+	@Test
+	public void buscarPorCodigo() {
+		FabricanteDao fdao = new FabricanteDao();
+
+		Fabricante f1 = fdao.buscarPorCodigo(1L);
+
+		System.out.println(f1);
 
 	}
 
