@@ -132,4 +132,24 @@ public class FabricanteDao {
 
 	}
 
+	/* Método editar mais fácil fabricante */
+	public void editarSimples(Fabricante fabricante) throws Exception {
+
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Transaction transacao = null;
+		try {
+			transacao = sessao.beginTransaction();
+			sessao.update(fabricante);
+			transacao.commit();
+		} catch (RuntimeException ex) {
+			if (transacao != null) {
+				transacao.rollback();
+			}
+			throw ex;
+		} finally {
+			sessao.close();
+		}
+
+	}
+
 }

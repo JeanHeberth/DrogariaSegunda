@@ -70,13 +70,26 @@ public class FabricanteDAOTest {
 	}
 
 	@Test
+	@Ignore
 	public void editar() throws Exception {
 		Fabricante fabricante = new Fabricante();
-		fabricante.setCodigo(12L);
-		fabricante.setDescricao("Jean Heberth");
+		fabricante.setCodigo(11L);
+		fabricante.setDescricao("João Victor Siqueira de Souza");
 
 		FabricanteDao fdao = new FabricanteDao();
 		fdao.editar(fabricante);
+
+	}
+
+	@Test
+	@Ignore
+	public void editarSimples() throws Exception {
+		Fabricante fabricante = new Fabricante();
+		fabricante.setCodigo(11L);
+		fabricante.setDescricao("João Victor Siqueira de Souza");
+
+		FabricanteDao fdao = new FabricanteDao();
+		fdao.editarSimples(fabricante);
 
 	}
 }
