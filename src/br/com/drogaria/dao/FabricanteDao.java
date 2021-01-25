@@ -67,6 +67,69 @@ public class FabricanteDao {
 		}
 		return fabricante;
 	}
-	
-	
+
+	/* Método excluir */
+
+	public void excluir(Fabricante fabricante) throws Exception {
+
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Transaction transacao = null;
+		try {
+			transacao = sessao.beginTransaction();
+			sessao.delete(fabricante);
+			transacao.commit();
+		} catch (RuntimeException ex) {
+			if (transacao != null) {
+				transacao.rollback();
+			}
+			throw ex;
+		} finally {
+			sessao.close();
+		}
+
+	}
+
+	/* Segundo método excluir */
+	public void excluir(Long codigo) throws Exception {
+
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Transaction transacao = null;
+		try {
+			transacao = sessao.beginTransaction();
+			Fabricante fabricante = buscarPorCodigo(codigo);
+			sessao.delete(fabricante);
+			transacao.commit();
+		} catch (RuntimeException ex) {
+			if (transacao != null) {
+				transacao.rollback();
+			}
+			throw ex;
+		} finally {
+			sessao.close();
+		}
+
+	}
+
+	/* Método editar fabricante */
+	public void editar(Fabricante fabricante) throws Exception {
+
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Transaction transacao = null;
+		try {
+			transacao = sessao.beginTransaction();
+			Fabricante fabricanteEditar = buscarPorCodigo(fabricante.getCodigo());
+			fabricanteEditar.setDescricao(fabricante.getDescricao());
+			sessao.update(fabricante);
+			transacao.commit();
+		} catch (RuntimeException ex) {
+			if (transacao != null) {
+				transacao.rollback();
+			}
+			throw ex;
+		} finally {
+			sessao.close();
+		}
+
+	}
+
 }

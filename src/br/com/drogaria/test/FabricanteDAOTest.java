@@ -39,13 +39,44 @@ public class FabricanteDAOTest {
 	}
 
 	@Test
+	@Ignore
 	public void buscarPorCodigo() {
 		FabricanteDao fdao = new FabricanteDao();
 
-		Fabricante f1 = fdao.buscarPorCodigo(1L);
+		Fabricante f1 = fdao.buscarPorCodigo(12L);
 
 		System.out.println(f1);
 
 	}
 
+	@Test
+	@Ignore
+	public void excluir() throws Exception {
+
+		FabricanteDao fdao = new FabricanteDao();
+		Fabricante fabricante = fdao.buscarPorCodigo(1L);
+
+		if (fabricante != null) {
+			fdao.excluir(fabricante);
+		}
+	}
+
+	@Test
+	@Ignore
+	public void excluirPorCodigo() throws Exception {
+
+		FabricanteDao fdao = new FabricanteDao();
+		fdao.excluir(12L);
+	}
+
+	@Test
+	public void editar() throws Exception {
+		Fabricante fabricante = new Fabricante();
+		fabricante.setCodigo(12L);
+		fabricante.setDescricao("Jean Heberth");
+
+		FabricanteDao fdao = new FabricanteDao();
+		fdao.editar(fabricante);
+
+	}
 }
