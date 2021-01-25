@@ -118,7 +118,7 @@ public class FabricanteDao {
 		try {
 			transacao = sessao.beginTransaction();
 			Fabricante fabricanteEditar = buscarPorCodigo(fabricante.getCodigo());
-		//	fabricanteEditar.setDescricao(fabricante.getDescricao());
+			fabricanteEditar.setDescricao(fabricante.getDescricao());
 			sessao.update(fabricante);
 			transacao.commit();
 		} catch (RuntimeException ex) {
