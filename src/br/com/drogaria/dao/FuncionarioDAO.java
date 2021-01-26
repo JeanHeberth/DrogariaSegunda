@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import br.com.drogaria.domain.Funcionario;
 import br.com.drogaria.util.HibernateUtil;
 
-public class FuncionarioDao {
+public class FuncionarioDAO {
 
 	/* Método salvar funcionario */
 	public void salvar(Funcionario funcionario) throws Exception {

@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import br.com.drogaria.domain.Fabricante;
 import br.com.drogaria.util.HibernateUtil;
 
-public class FabricanteDao {
+public class FabricanteDAO {
 
 	/* Método salvar fabricante */
 	public void salvar(Fabricante fabricante) throws Exception {

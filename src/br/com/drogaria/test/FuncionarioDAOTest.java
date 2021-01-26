@@ -5,10 +5,10 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.drogaria.dao.FuncionarioDao;
+import br.com.drogaria.dao.FuncionarioDAO;
 import br.com.drogaria.domain.Funcionario;
 
-public class FuncionarioDaoTest {
+public class FuncionarioDAOTest {
 
 	@Test
 	@Ignore
@@ -20,7 +20,7 @@ public class FuncionarioDaoTest {
 		funcionario.setNome("Jessica Jasmine");
 		funcionario.setSenha("A1B2C3");
 
-		FuncionarioDao funciDao = new FuncionarioDao();
+		FuncionarioDAO funciDao = new FuncionarioDAO();
 		funciDao.salvar(funcionario);
 
 	}
@@ -28,7 +28,7 @@ public class FuncionarioDaoTest {
 	@Test
 	@Ignore
 	public void listar() {
-		FuncionarioDao funciDao = new FuncionarioDao();
+		FuncionarioDAO funciDao = new FuncionarioDAO();
 		List<Funcionario> funcionarios = funciDao.listar();
 		System.out.println(funcionarios);
 	}
@@ -36,7 +36,7 @@ public class FuncionarioDaoTest {
 	@Test
 	@Ignore
 	public void buscarPorCodigo() {
-		FuncionarioDao funciDao = new FuncionarioDao();
+		FuncionarioDAO funciDao = new FuncionarioDAO();
 
 		Funcionario funcionario = funciDao.buscarPorCodigo(1L);
 		System.out.println(funcionario);
@@ -47,7 +47,7 @@ public class FuncionarioDaoTest {
 	@Ignore
 	public void excluir() throws Exception {
 
-		FuncionarioDao funciDao = new FuncionarioDao();
+		FuncionarioDAO funciDao = new FuncionarioDAO();
 
 		Funcionario funcionario = funciDao.buscarPorCodigo(3L);
 		funciDao.excluir(funcionario);
@@ -57,7 +57,7 @@ public class FuncionarioDaoTest {
 	@Ignore
 	public void editar() throws Exception {
 
-		FuncionarioDao funciDao = new FuncionarioDao();
+		FuncionarioDAO funciDao = new FuncionarioDAO();
 		Funcionario funcionario = funciDao.buscarPorCodigo(2L);
 
 		funcionario.setCpf("042.438.771-90");

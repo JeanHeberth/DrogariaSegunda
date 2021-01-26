@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.drogaria.dao.FabricanteDao;
+import br.com.drogaria.dao.FabricanteDAO;
 import br.com.drogaria.domain.Fabricante;
 
 public class FabricanteDAOTest {
@@ -15,12 +15,12 @@ public class FabricanteDAOTest {
 	public void salvar() throws Exception {
 
 		Fabricante f1 = new Fabricante();
-		f1.setDescricao("Descrição1");
+		f1.setDescricao("Descrição 9");
 
 		Fabricante f2 = new Fabricante();
-		f2.setDescricao("Descrição2");
+		f2.setDescricao("Descrição 10");
 
-		FabricanteDao fdao = new FabricanteDao();
+		FabricanteDAO fdao = new FabricanteDAO();
 		fdao.salvar(f1);
 		fdao.salvar(f2);
 
@@ -29,7 +29,7 @@ public class FabricanteDAOTest {
 	@Test
 	@Ignore
 	public void listar() {
-		FabricanteDao fdao = new FabricanteDao();
+		FabricanteDAO fdao = new FabricanteDAO();
 		List<Fabricante> fabricantes = fdao.listar();
 
 		for (Fabricante fabricante : fabricantes) {
@@ -41,7 +41,7 @@ public class FabricanteDAOTest {
 	@Test
 	@Ignore
 	public void buscarPorCodigo() {
-		FabricanteDao fdao = new FabricanteDao();
+		FabricanteDAO fdao = new FabricanteDAO();
 
 		Fabricante f1 = fdao.buscarPorCodigo(12L);
 
@@ -53,7 +53,7 @@ public class FabricanteDAOTest {
 	@Ignore
 	public void excluir() throws Exception {
 
-		FabricanteDao fdao = new FabricanteDao();
+		FabricanteDAO fdao = new FabricanteDAO();
 		Fabricante fabricante = fdao.buscarPorCodigo(1L);
 
 		if (fabricante != null) {
@@ -68,7 +68,7 @@ public class FabricanteDAOTest {
 		fabricante.setCodigo(11L);
 		fabricante.setDescricao("João Victor Siqueira de Souza");
 
-		FabricanteDao fdao = new FabricanteDao();
+		FabricanteDAO fdao = new FabricanteDAO();
 		fdao.editar(fabricante);
 
 	}
