@@ -63,14 +63,6 @@ public class FabricanteDAOTest {
 
 	@Test
 	@Ignore
-	public void excluirPorCodigo() throws Exception {
-
-		FabricanteDao fdao = new FabricanteDao();
-		fdao.excluir(12L);
-	}
-
-	@Test
-	@Ignore
 	public void editar() throws Exception {
 		Fabricante fabricante = new Fabricante();
 		fabricante.setCodigo(11L);
@@ -78,18 +70,6 @@ public class FabricanteDAOTest {
 
 		FabricanteDao fdao = new FabricanteDao();
 		fdao.editar(fabricante);
-
-	}
-
-	@Test
-	@Ignore
-	public void editarSimples() throws Exception {
-		Fabricante fabricante = new Fabricante();
-		fabricante.setCodigo(11L);
-		fabricante.setDescricao("João Victor Siqueira de Souza");
-
-		FabricanteDao fdao = new FabricanteDao();
-		fdao.editarSimples(fabricante);
 
 	}
 }
