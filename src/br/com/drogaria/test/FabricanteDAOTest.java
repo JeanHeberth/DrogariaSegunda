@@ -39,7 +39,7 @@ public class FabricanteDAOTest {
 	}
 
 	@Test
-	@Ignore
+//	@Ignore
 	public void buscarPorCodigo() {
 		FabricanteDAO fdao = new FabricanteDAO();
 

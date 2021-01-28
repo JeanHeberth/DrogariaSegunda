@@ -17,11 +17,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_produtos")
 @NamedQueries({
+
 		/* NamedQuery para listar */
 		@NamedQuery(name = "Produto.listar", query = "SELECT produto FROM Produto produto"),
 
 		/* Segunda NamedQuery para buscar por codigo */
-		@NamedQuery(name = "Produto.buscar", query = "SELECT produto FROM Produto produto WHERE Produto.codigo =: codigo ")
+		@NamedQuery(name = "Produto.buscarPorCodigo", query = "SELECT produto FROM Produto produto WHERE codigo = :codigo ")
 
 })
 public class Produto {

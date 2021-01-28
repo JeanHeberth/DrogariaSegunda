@@ -1,5 +1,8 @@
 package br.com.drogaria.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -26,6 +29,44 @@ public class ProdutoDAO {
 			sessao.close();
 		}
 
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Produto> listar() {
+
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Produto> produtos = null;
+
+		try {
+			Query consulta = sessao.getNamedQuery("Produto.listar");
+			produtos = consulta.list();
+
+		} catch (RuntimeException ex) {
+			throw ex;
+		} finally {
+			sessao.close();
+		}
+		return produtos;
+	}
+
+	public Produto buscarPorCodigo(Long codigo) {
+
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Produto produto = null;
+
+		try {
+			Query consulta = sessao.getNamedQuery("Produto.buscarPorCodigo");
+			consulta.setLong("codigo", codigo);
+
+			produto = (Produto) consulta.uniqueResult();
+
+		} catch (RuntimeException ex) {
+			throw ex;
+		} finally {
+			sessao.close();
+		}
+
+		return produto;
 	}
 
 }

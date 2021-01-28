@@ -11,13 +11,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_fabricantes")
-@NamedQueries({ 
-	
-	/* NamedQuery para listar */
-	@NamedQuery(name = "Fabricante.listar", query = "SELECT fabricante FROM Fabricante fabricante"),
-	
-	/* NamedQuery para buscar */
-	@NamedQuery(name = "Fabricante.buscarPorCodigo", query = "SELECT fabricante FROM Fabricante fabricante WHERE fabricante.codigo = :codigo")})
+@NamedQueries({
+
+		/* NamedQuery para listar */
+		@NamedQuery(name = "Fabricante.listar", query = "SELECT fabricante FROM Fabricante fabricante"),
+
+		/* NamedQuery para buscar */
+		@NamedQuery(name = "Fabricante.buscarPorCodigo", query = "SELECT fabricante FROM Fabricante fabricante WHERE fabricante.codigo = :codigo") })
 
 public class Fabricante {
 
