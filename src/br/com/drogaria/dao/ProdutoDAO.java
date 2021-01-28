@@ -8,7 +8,7 @@ import br.com.drogaria.util.HibernateUtil;
 
 public class ProdutoDAO {
 
-	public void inserir(Produto produto) {
+	public void salvar(Produto produto) {
 
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		Transaction transacao = null;

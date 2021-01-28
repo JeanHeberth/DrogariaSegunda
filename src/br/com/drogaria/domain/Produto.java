@@ -16,11 +16,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_produtos")
-//@NamedQueries({
-//	@NamedQuery(name = "", query = ""),
-//	@NamedQuery(name = "", query = "")
-//
-//})
+@NamedQueries({
+		/* NamedQuery para listar */
+		@NamedQuery(name = "Produto.listar", query = "SELECT produto FROM Produto produto"),
+
+		/* Segunda NamedQuery para buscar por codigo */
+		@NamedQuery(name = "Produto.buscar", query = "SELECT produto FROM Produto produto WHERE Produto.codigo =: codigo ")
+
+})
 public class Produto {
 
 	@Id
@@ -79,6 +82,12 @@ public class Produto {
 
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante = fabricante;
+	}
+
+	@Override
+	public String toString() {
+		return "Produto [codigo=" + codigo + ", descricao=" + descricao + ", preco=" + preco + ", quantidade="
+				+ quantidade + ", fabricante=" + fabricante + "]";
 	}
 
 }

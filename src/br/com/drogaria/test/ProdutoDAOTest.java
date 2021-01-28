@@ -27,6 +27,6 @@ public class ProdutoDAOTest {
 		produto.setFabricante(fabricante);
 		
 		ProdutoDAO proDAO = new ProdutoDAO();
-		proDAO.inserir(produto);
+		proDAO.salvar(produto);
 	}
 }
